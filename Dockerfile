@@ -7,9 +7,9 @@ RUN	echo "#!/bin/sh\nexit 101" > /usr/sbin/policy-rc.d; chmod +x /usr/sbin/polic
 #RUN sed -i s/archive/old-releases/g /etc/apt/sources.list
 #RUN apt-get update
 #RUN apt-get install -y software-properties-common
-RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
-RUN add-apt-repository 'deb http://ftp.osuosl.org/pub/mariadb/repo/5.5/ubuntu trusty main'
-RUN apt-get update
+#RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
+#RUN add-apt-repository 'deb http://ftp.osuosl.org/pub/mariadb/repo/5.5/ubuntu trusty main'
+#RUN apt-get update
 RUN echo mysql-server-5.5 mysql-server/root_password password 'a_stronk_password' | debconf-set-selections
 RUN echo mysql-server-5.5 mysql-server/root_password_again password 'a_stronk_password' | debconf-set-selections
 RUN LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y mariadb-server-5.5
