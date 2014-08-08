@@ -1,4 +1,4 @@
-FROM	ubuntu:precise
+FROM	ubuntu:trusty
 MAINTAINER	kload "kload@kload.fr"
 
 # prevent apt from starting mariadb right after the installation
