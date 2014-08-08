@@ -4,8 +4,8 @@ MAINTAINER	kload "kload@kload.fr"
 # prevent apt from starting mariadb right after the installation
 RUN	echo "#!/bin/sh\nexit 101" > /usr/sbin/policy-rc.d; chmod +x /usr/sbin/policy-rc.d
 
-RUN sed -i s/archive/old-releases/g /etc/apt/sources.list
-RUN apt-get update
+#RUN sed -i s/archive/old-releases/g /etc/apt/sources.list
+#RUN apt-get update
 RUN apt-get install -y software-properties-common
 RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
 RUN add-apt-repository 'deb http://ftp.osuosl.org/pub/mariadb/repo/5.5/ubuntu trusty main'
