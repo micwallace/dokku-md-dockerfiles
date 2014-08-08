@@ -1,4 +1,4 @@
-FROM	ubuntu:trusty
+FROM	ubuntu:quantal
 MAINTAINER	kload "kload@kload.fr"
 
 # prevent apt from starting mariadb right after the installation
@@ -12,7 +12,7 @@ RUN add-apt-repository 'deb http://ftp.osuosl.org/pub/mariadb/repo/5.5/ubuntu tr
 RUN apt-get update
 RUN echo mysql-server-5.5 mysql-server/root_password password 'a_stronk_password' | debconf-set-selections
 RUN echo mysql-server-5.5 mysql-server/root_password_again password 'a_stronk_password' | debconf-set-selections
-RUN LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y mariadb-server-5.5
+RUN LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y libmysqlclient18=5.5.30-mariadb1~precise mysql-common=5.5.30-mariadb1~precise && sudo apt-get install mariadb-server
 RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get clean
 
